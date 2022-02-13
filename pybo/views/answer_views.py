@@ -1,6 +1,6 @@
 from datetime import datetime
 from distutils.command import config
-from flask import Blueprint, url_for, request, render_template, g
+from flask import Blueprint, url_for, request, render_template, g, flash
 from werkzeug.utils import redirect
 
 from pybo import db
@@ -23,4 +23,3 @@ def create(question_id):
         db.session.commit()
         return redirect(url_for('question.detail', question_id=question_id))
     return render_template('question/question_detail.html', question=question, form=form)
-    
